@@ -1,0 +1,19 @@
+<h1>Sign up for</h1>  <h3>Coding is</h3> <h2>Overwhelming Hotlinebling</h2> 
+<%= form_for @user,
+:html => { :multipart => true } do |form| %>
+<%= form.text_field :email%>
+<%= form.password_field :password %>
+<%= form.file_field :profile_pic %>
+<%= form.submit :create %>
+<% end %>
+
+<br>
+
+<% @users.each do |u| %>
+<br>
+<%= u.email  %>
+<br>
+<br>
+<%= image_tag u.profile_pic.url(:thumb)  %>
+<br>
+<%end%>
